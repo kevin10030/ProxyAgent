@@ -1,6 +1,0 @@
-Portal URL - http://10.97.5.121/elog/rules
-Ads URL1 - log in
-Ads URL2 - sign up
-Ads URL3 - asdas
-0 Repeat Started
-Proxy Setting OK( premium-residential.geonode.com, 9003)
