@@ -38,7 +38,8 @@ while x<=y :
     prefs = {"profile.managed_default_content_settings.images": 2}
     chrome_options.add_experimental_option("prefs", prefs)
 
-    browser = webdriver.Chrome(chrome_options=chrome_options)
+    browser = webdriver.Chrome(options=chrome_options)
+    #browser = webdriver.Chrome(executable_path=r'E:\chromedriver_win32\chromedriver.exe', options=chrome_options)
 
     try:
 
@@ -51,11 +52,11 @@ while x<=y :
         search.send_keys(Keys.RETURN)
         new_open = 0
 
-		webs = browser.find_elements(By.PARTIAL_LINK_TEXT, click_text_url)
+        webs = browser.find_elements(By.PARTIAL_LINK_TEXT, click_text_url)
         if webs:
                 for web in webs:
-                		print("Found Temp Ads URL")
-                		print(web.get_attribute('href'))
+                        print("Found Temp Ads URL")
+                        print(web.get_attribute('href'))
                         req = opener.open(web.get_attribute('href'))
                         finalurl = req.geturl()
                         print("Final URL = ")
@@ -70,7 +71,7 @@ while x<=y :
         print(webs)
         if webs:
                 for web in webs:
-                		print(web.get_attribute('href'))
+                        print(web.get_attribute('href'))
                         web.send_keys(Keys.CONTROL,Keys.ENTER)
                         new_open = new_open + 1
                         time.sleep(0.5)
@@ -79,7 +80,7 @@ while x<=y :
         print(webs)
         if webs:
                 for web in webs:
-                		print(web.get_attribute('href'))
+                        print(web.get_attribute('href'))
                         web.send_keys(Keys.CONTROL,Keys.ENTER)
                         new_open = new_open + 1
                         time.sleep(0.5)
@@ -88,7 +89,7 @@ while x<=y :
         print(webs)
         if webs:
                 for web in webs:
-                		print(web.get_attribute('href'))
+                        print(web.get_attribute('href'))
                         web.send_keys(Keys.CONTROL,Keys.ENTER)
                         new_open = new_open + 1
                         time.sleep(0.5)
@@ -97,7 +98,7 @@ while x<=y :
         print(webs)
         if webs:
                 for web in webs:
-                		print(web.get_attribute('href'))
+                        print(web.get_attribute('href'))
                         web.send_keys(Keys.CONTROL,Keys.ENTER)
                         new_open = new_open + 1
                         time.sleep(0.5)
@@ -106,7 +107,7 @@ while x<=y :
         print(webs)
         if webs:
                 for web in webs:
-                		print(web.get_attribute('href'))
+                        print(web.get_attribute('href'))
                         web.send_keys(Keys.CONTROL,Keys.ENTER)
                         new_open = new_open + 1
                         time.sleep(0.5)
@@ -119,14 +120,14 @@ while x<=y :
 
         print("ok")
         
-	except StaleElementReferenceException as ex:
-		print(ex)
-		pass
-	except NoSuchElementException as ex:
-		print(ex)
-		pass
+    except StaleElementReferenceException as ex:
+        print(ex)
+        pass
+    except NoSuchElementException as ex:
+        print(ex)
+        pass
     except Exception as ex:
-    	print(ex)
+        print(ex)
         print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         pass
 
