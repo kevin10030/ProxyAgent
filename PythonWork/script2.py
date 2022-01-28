@@ -53,7 +53,7 @@ while x<=y :
         new_open = 0
 
         if click_text_url:
-	        webs = browser.find_elements_by_css_selector("a[href=" + click_text_url + "]")
+	        webs = browser.find_elements(By.CSS_SELECTOR("a[href=" + click_text_url + "]"))
 	        if webs:
 	                for web in webs:
 	                        print("Found Temp Ads URL")
@@ -69,7 +69,7 @@ while x<=y :
 	                        	time.sleep(0.5)
                         
         if click_text_1:
-	        webs = browser.find_elements_by_css_selector("a[href=" + click_text_1 + "]")
+	        webs = browser.find_elements(By.CSS_SELECTOR("a[href=" + click_text_1 + "]"))
 	        print(webs)
 	        if webs:
 	                for web in webs:
@@ -79,7 +79,7 @@ while x<=y :
 	                        time.sleep(0.5)
 
         if click_text_2:
-	        webs = browser.find_elements_by_css_selector("a[href=" + click_text_2 + "]")
+	        webs = browser.find_elements(By.CSS_SELECTOR("a[href=" + click_text_2 + "]"))
 	        print(webs)
 	        if webs:
 	                for web in webs:
@@ -89,7 +89,7 @@ while x<=y :
 	                        time.sleep(0.5)
 
         if click_text_3:
-	        webs = browser.find_elements_by_css_selector("a[href=" + click_text_3 + "]")
+	        webs = browser.find_elements(By.CSS_SELECTOR("a[href=" + click_text_3 + "]"))
 	        print(webs)
 	        if webs:
 	                for web in webs:
@@ -99,7 +99,7 @@ while x<=y :
 	                        time.sleep(0.5)
 
         if click_text_4:
-	        webs = browser.find_elements_by_css_selector("a[href=" + click_text_4 + "]")
+	        webs = browser.find_elements(By.CSS_SELECTOR("a[href=" + click_text_4 + "]"))
 	        print(webs)
 	        if webs:
 	                for web in webs:
@@ -109,7 +109,7 @@ while x<=y :
 	                        time.sleep(0.5)
 
         if click_text_5:
-	        webs = browser.find_elements_by_css_selector("a[href=" + click_text_5 + "]")
+	        webs = browser.find_elements(By.CSS_SELECTOR("a[href=" + click_text_5 + "]"))
 	        print(webs)
 	        if webs:
 	                for web in webs:
