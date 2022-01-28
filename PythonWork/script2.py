@@ -25,7 +25,7 @@ proxy_handler = request.ProxyHandler({})
 opener = request.build_opener(proxy_handler)
 
 while x<=y :
-    print("start")
+    print("Final start")
     username = "geonode_GJkxCcMRU0-autoReplace-True"
     password = "99879a56-fed0-467a-af48-df19046284ae"
     GEONODE_DNS = "premium-residential.geonode.com:9003"
@@ -38,22 +38,22 @@ while x<=y :
     prefs = {"profile.managed_default_content_settings.images": 2}
     chrome_options.add_experimental_option("prefs", prefs)
 
-    css_click_text_url = "a[href=\"{0}\"]".format(click_text_url)
+    css_click_text_url = 'a[href=\"{0}\"]'.format(click_text_url)
     print( css_click_text_url)
     
-    css_click_text_1 = "a[href=\"{0}\"]".format(click_text_1)
+    css_click_text_1 = 'a[href=\"{0}\"]'.format(click_text_1)
     print( css_click_text_1)
     
-    css_click_text_2 = "a[href=\"{0}\"]".format(click_text_2)
+    css_click_text_2 = 'a[href=\"{0}\"]'.format(click_text_2)
     print( css_click_text_2)
     
-    css_click_text_3 = "a[href=\"{0}\"]".format(click_text_3)
+    css_click_text_3 = 'a[href=\"{0}\"]'.format(click_text_3)
     print( css_click_text_3)
     
-    css_click_text_4 = "a[href=\"{0}\"]".format(click_text_4)
+    css_click_text_4 = 'a[href=\"{0}\"]'.format(click_text_4)
     print( css_click_text_4)
     
-    css_click_text_5 = "a[href=\"{0}\"]".format(click_text_5)
+    css_click_text_5 = 'a[href=\"{0}\"]'.format(click_text_5)
     print( css_click_text_5)
     
     browser = webdriver.Chrome(options=chrome_options)
@@ -65,18 +65,24 @@ while x<=y :
         browser.get("https://www.google.com/") 
         time.sleep(1)
 
-        search = browser.find_element(By.NAME, 'q')
+        search = browser.find_element_by_name( 'q')
         search.send_keys(keyword)
         time.sleep(1)
         search.send_keys(Keys.RETURN)
         new_open = 0
 
-        webs = browser.find_elements(By.TAG_NAME("a"))
+        webs = browser.find_elements_by_tag_name('a')
         if webs:
 	        for web in webs:
 	        	print( web)
 	        	finalurl = web.get_attribute('href')
 	        	print( finalurl)
+	        	if click_text_url in finalurl:
+	        		print("Found Temp Ads URL")
+	        		req = opener.open( finalurl)
+	        		finalurl = req.geturl()
+	        		print( finalurl)
+	        		
 	        	if click_text_1 in finalurl or click_text_2 in finalurl or click_text_3 in finalurl or click_text_4 in finalurl or click_text_5 in finalurl: 
 	        		print("Found keyword on href url")
 	        		web.send_keys(Keys.CONTROL,Keys.ENTER)
@@ -85,7 +91,7 @@ while x<=y :
 	                        
         if click_text_url:
 	        print(css_click_text_url)
-	        webs = browser.find_elements(By.CSS_SELECTOR(css_click_text_url))
+	        webs = browser.find_elements_by_css_selector(css_click_text_url)
 	        if webs:
 	                for web in webs:
 	                        print("Found Temp Ads URL")
@@ -94,7 +100,9 @@ while x<=y :
 	                        finalurl = req.geturl()
 	                        print("Final URL = ")
 	                        print(finalurl)
-	                        if click_text_1 in finalurl or click_text_2 in finalurl or click_text_3 in finalurl or click_text_4 in finalurl or click_text_5 in finalurl: 
+	                        
+	                        	
+	                        if click_text_1 in finalurl or click_text_2 in finalurl or click_text_3 in finalurl or click_text_4 in finalurl or click_text_5 in finalurl:
 	                        	print("Found keyword on final url")
 	                        	web.send_keys(Keys.CONTROL,Keys.ENTER)
 	                        	new_open = new_open + 1
@@ -102,7 +110,7 @@ while x<=y :
                         
         if click_text_1:
         	print(css_click_text_1)
-	        webs = browser.find_elements(By.CSS_SELECTOR(css_click_text_1))
+	        webs = browser.find_elements_by_css_selector(css_click_text_1)
 	        print(webs)
 	        if webs:
 	                for web in webs:
@@ -113,7 +121,7 @@ while x<=y :
 
         if click_text_2:
         	print(css_click_text_2)
-	        webs = browser.find_elements(By.CSS_SELECTOR(css_click_text_2))
+	        webs = browser.find_elements_by_css_selector(css_click_text_2)
 	        print(webs)
 	        if webs:
 	                for web in webs:
@@ -124,7 +132,7 @@ while x<=y :
 
         if click_text_3:
         	print(css_click_text_3)
-	        webs = browser.find_elements(By.CSS_SELECTOR(css_click_text_3))
+	        webs = browser.find_elements_by_css_selector(css_click_text_3)
 	        print(webs)
 	        if webs:
 	                for web in webs:
@@ -135,7 +143,7 @@ while x<=y :
 
         if click_text_4:
         	print(css_click_text_4)
-	        webs = browser.find_elements(By.CSS_SELECTOR(css_click_text_4))
+	        webs = browser.find_elements_by_css_selector(css_click_text_4)
 	        print(webs)
 	        if webs:
 	                for web in webs:
@@ -146,7 +154,7 @@ while x<=y :
 
         if click_text_5:
         	print(css_click_text_5)
-	        webs = browser.find_elements(By.CSS_SELECTOR(css_click_text_5))
+	        webs = browser.find_elements_by_css_selector(css_click_text_5)
 	        print(webs)
 	        if webs:
 	                for web in webs:
