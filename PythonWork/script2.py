@@ -25,7 +25,7 @@ proxy_handler = request.ProxyHandler({})
 opener = request.build_opener(proxy_handler)
 
 while x<=y :
-    print("Final start")
+    print("Final start2")
     username = "geonode_GJkxCcMRU0-autoReplace-True"
     password = "99879a56-fed0-467a-af48-df19046284ae"
     GEONODE_DNS = "premium-residential.geonode.com:9003"
@@ -71,6 +71,15 @@ while x<=y :
         search.send_keys(Keys.RETURN)
         new_open = 0
 
+        print("Wait start-step0")
+        wait = WebDriverWait( browser, 5)
+        print("Wait start-step1")
+        a_href = wait.until(EC.element_to_be_clickable((By.TAG_NAME, "a")))
+        print("Wait start-step2")
+        time.sleep(5)
+        print("Wait start-step3")
+        
+		
         webs = browser.find_elements_by_tag_name('a')
         if webs:
 	        for web in webs:
