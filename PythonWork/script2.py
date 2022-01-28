@@ -51,10 +51,11 @@ while x<=y :
         search.send_keys(Keys.RETURN)
         new_open = 0
 
-		webs = browser.find_elements_by_partial_link_text(click_text_url)
+		webs = browser.find_elements(By.PARTIAL_LINK_TEXT, click_text_url)
         if webs:
                 for web in webs:
                 		print("Found Temp Ads URL")
+                		print(web.get_attribute('href'))
                         req = opener.open(web.get_attribute('href'))
                         finalurl = req.geturl()
                         print("Final URL = ")
@@ -65,37 +66,47 @@ while x<=y :
                         	new_open = new_open + 1
                         	time.sleep(0.5)
                         
-        webs = browser.find_elements_by_partial_link_text(click_text_1)
+        webs = browser.find_elements(By.PARTIAL_LINK_TEXT, click_text_1)
+        print(webs)
         if webs:
                 for web in webs:
+                		print(web.get_attribute('href'))
                         web.send_keys(Keys.CONTROL,Keys.ENTER)
                         new_open = new_open + 1
                         time.sleep(0.5)
 
-        webs = browser.find_elements_by_partial_link_text(click_text_2)
+        webs = browser.find_elements(By.PARTIAL_LINK_TEXT, click_text_2)
+        print(webs)
         if webs:
                 for web in webs:
+                		print(web.get_attribute('href'))
                         web.send_keys(Keys.CONTROL,Keys.ENTER)
                         new_open = new_open + 1
                         time.sleep(0.5)
 
-        webs = browser.find_elements_by_partial_link_text(click_text_3)
+        webs = browser.find_elements(By.PARTIAL_LINK_TEXT, click_text_3)
+        print(webs)
         if webs:
                 for web in webs:
+                		print(web.get_attribute('href'))
                         web.send_keys(Keys.CONTROL,Keys.ENTER)
                         new_open = new_open + 1
                         time.sleep(0.5)
 
-        webs = browser.find_elements_by_partial_link_text(click_text_4)
+        webs = browser.find_elements(By.PARTIAL_LINK_TEXT, click_text_4)
+        print(webs)
         if webs:
                 for web in webs:
+                		print(web.get_attribute('href'))
                         web.send_keys(Keys.CONTROL,Keys.ENTER)
                         new_open = new_open + 1
                         time.sleep(0.5)
 
-        webs = browser.find_elements_by_partial_link_text(click_text_5)
+        webs = browser.find_elements(By.PARTIAL_LINK_TEXT, click_text_5)
+        print(webs)
         if webs:
                 for web in webs:
+                		print(web.get_attribute('href'))
                         web.send_keys(Keys.CONTROL,Keys.ENTER)
                         new_open = new_open + 1
                         time.sleep(0.5)
@@ -107,9 +118,17 @@ while x<=y :
         time.sleep(new_open * 0.5)
 
         print("ok")
-
-    except:
+        
+	except StaleElementReferenceException as ex:
+		print(ex)
+		pass
+	except NoSuchElementException as ex:
+		print(ex)
+		pass
+    except Exception as ex:
+    	print(ex)
         print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        pass
 
 
     time.sleep(2)
