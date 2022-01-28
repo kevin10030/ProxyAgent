@@ -38,9 +38,28 @@ while x<=y :
     prefs = {"profile.managed_default_content_settings.images": 2}
     chrome_options.add_experimental_option("prefs", prefs)
 
+    css_click_text_url = "a[href=\"{0}\"]".format(click_text_url)
+    print( css_click_text_url)
+    
+    css_click_text_1 = "a[href=\"{0}\"]".format(click_text_1)
+    print( css_click_text_1)
+    
+    css_click_text_2 = "a[href=\"{0}\"]".format(click_text_2)
+    print( css_click_text_2)
+    
+    css_click_text_3 = "a[href=\"{0}\"]".format(click_text_3)
+    print( css_click_text_3)
+    
+    css_click_text_4 = "a[href=\"{0}\"]".format(click_text_4)
+    print( css_click_text_4)
+    
+    css_click_text_5 = "a[href=\"{0}\"]".format(click_text_5)
+    print( css_click_text_5)
+    
     browser = webdriver.Chrome(options=chrome_options)
     #browser = webdriver.Chrome(executable_path=r'E:\chromedriver_win32\chromedriver.exe', options=chrome_options)
 
+    
     try:
 
         browser.get("https://www.google.com/") 
@@ -53,7 +72,8 @@ while x<=y :
         new_open = 0
 
         if click_text_url:
-	        webs = browser.find_elements(By.CSS_SELECTOR("a[href=" + click_text_url + "]"))
+	        print(css_click_text_url)
+	        webs = browser.find_elements(By.CSS_SELECTOR(css_click_text_url))
 	        if webs:
 	                for web in webs:
 	                        print("Found Temp Ads URL")
@@ -69,7 +89,8 @@ while x<=y :
 	                        	time.sleep(0.5)
                         
         if click_text_1:
-	        webs = browser.find_elements(By.CSS_SELECTOR("a[href=" + click_text_1 + "]"))
+        	print(css_click_text_1)
+	        webs = browser.find_elements(By.CSS_SELECTOR(css_click_text_1))
 	        print(webs)
 	        if webs:
 	                for web in webs:
@@ -79,7 +100,8 @@ while x<=y :
 	                        time.sleep(0.5)
 
         if click_text_2:
-	        webs = browser.find_elements(By.CSS_SELECTOR("a[href=" + click_text_2 + "]"))
+        	print(css_click_text_2)
+	        webs = browser.find_elements(By.CSS_SELECTOR(css_click_text_2))
 	        print(webs)
 	        if webs:
 	                for web in webs:
@@ -89,7 +111,8 @@ while x<=y :
 	                        time.sleep(0.5)
 
         if click_text_3:
-	        webs = browser.find_elements(By.CSS_SELECTOR("a[href=" + click_text_3 + "]"))
+        	print(css_click_text_3)
+	        webs = browser.find_elements(By.CSS_SELECTOR(css_click_text_3))
 	        print(webs)
 	        if webs:
 	                for web in webs:
@@ -99,7 +122,8 @@ while x<=y :
 	                        time.sleep(0.5)
 
         if click_text_4:
-	        webs = browser.find_elements(By.CSS_SELECTOR("a[href=" + click_text_4 + "]"))
+        	print(css_click_text_4)
+	        webs = browser.find_elements(By.CSS_SELECTOR(css_click_text_4))
 	        print(webs)
 	        if webs:
 	                for web in webs:
@@ -109,7 +133,8 @@ while x<=y :
 	                        time.sleep(0.5)
 
         if click_text_5:
-	        webs = browser.find_elements(By.CSS_SELECTOR("a[href=" + click_text_5 + "]"))
+        	print(css_click_text_5)
+	        webs = browser.find_elements(By.CSS_SELECTOR(css_click_text_5))
 	        print(webs)
 	        if webs:
 	                for web in webs:
