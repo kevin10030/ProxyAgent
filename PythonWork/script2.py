@@ -46,71 +46,77 @@ while x<=y :
         browser.get("https://www.google.com/") 
         time.sleep(1)
 
-        search = browser.find_element_by_name('q')
+        search = browser.find_element(By.NAME, 'q')
         search.send_keys(keyword)
         time.sleep(1)
         search.send_keys(Keys.RETURN)
         new_open = 0
 
-        webs = browser.find_elements(By.PARTIAL_LINK_TEXT, click_text_url)
-        if webs:
-                for web in webs:
-                        print("Found Temp Ads URL")
-                        print(web.get_attribute('href'))
-                        req = opener.open(web.get_attribute('href'))
-                        finalurl = req.geturl()
-                        print("Final URL = ")
-                        print(finalurl)
-                        if click_text_1 in finalurl or click_text_2 in finalurl or click_text_3 in finalurl or click_text_4 in finalurl or click_text_5 in finalurl: 
-                        	print("Found keyword on final url")
-                        	web.send_keys(Keys.CONTROL,Keys.ENTER)
-                        	new_open = new_open + 1
-                        	time.sleep(0.5)
+        if click_text_url:
+	        webs = browser.find_elements(By.cssSelector("a[href=" + click_text_url + "]"))
+	        if webs:
+	                for web in webs:
+	                        print("Found Temp Ads URL")
+	                        print(web.get_attribute('href'))
+	                        req = opener.open(web.get_attribute('href'))
+	                        finalurl = req.geturl()
+	                        print("Final URL = ")
+	                        print(finalurl)
+	                        if click_text_1 in finalurl or click_text_2 in finalurl or click_text_3 in finalurl or click_text_4 in finalurl or click_text_5 in finalurl: 
+	                        	print("Found keyword on final url")
+	                        	web.send_keys(Keys.CONTROL,Keys.ENTER)
+	                        	new_open = new_open + 1
+	                        	time.sleep(0.5)
                         
-        webs = browser.find_elements(By.PARTIAL_LINK_TEXT, click_text_1)
-        print(webs)
-        if webs:
-                for web in webs:
-                        print(web.get_attribute('href'))
-                        web.send_keys(Keys.CONTROL,Keys.ENTER)
-                        new_open = new_open + 1
-                        time.sleep(0.5)
+        if click_text_1:
+	        webs = browser.find_elements(By.cssSelector("a[href=" + click_text_1 + "]"))
+	        print(webs)
+	        if webs:
+	                for web in webs:
+	                        print(web.get_attribute('href'))
+	                        web.send_keys(Keys.CONTROL,Keys.ENTER)
+	                        new_open = new_open + 1
+	                        time.sleep(0.5)
 
-        webs = browser.find_elements(By.PARTIAL_LINK_TEXT, click_text_2)
-        print(webs)
-        if webs:
-                for web in webs:
-                        print(web.get_attribute('href'))
-                        web.send_keys(Keys.CONTROL,Keys.ENTER)
-                        new_open = new_open + 1
-                        time.sleep(0.5)
+        if click_text_2:
+	        webs = browser.find_elements(By.cssSelector("a[href=" + click_text_2 + "]"))
+	        print(webs)
+	        if webs:
+	                for web in webs:
+	                        print(web.get_attribute('href'))
+	                        web.send_keys(Keys.CONTROL,Keys.ENTER)
+	                        new_open = new_open + 1
+	                        time.sleep(0.5)
 
-        webs = browser.find_elements(By.PARTIAL_LINK_TEXT, click_text_3)
-        print(webs)
-        if webs:
-                for web in webs:
-                        print(web.get_attribute('href'))
-                        web.send_keys(Keys.CONTROL,Keys.ENTER)
-                        new_open = new_open + 1
-                        time.sleep(0.5)
+        if click_text_3:
+	        webs = browser.find_elements(By.cssSelector("a[href=" + click_text_3 + "]"))
+	        print(webs)
+	        if webs:
+	                for web in webs:
+	                        print(web.get_attribute('href'))
+	                        web.send_keys(Keys.CONTROL,Keys.ENTER)
+	                        new_open = new_open + 1
+	                        time.sleep(0.5)
 
-        webs = browser.find_elements(By.PARTIAL_LINK_TEXT, click_text_4)
-        print(webs)
-        if webs:
-                for web in webs:
-                        print(web.get_attribute('href'))
-                        web.send_keys(Keys.CONTROL,Keys.ENTER)
-                        new_open = new_open + 1
-                        time.sleep(0.5)
+        if click_text_4:
+	        webs = browser.find_elements(By.cssSelector("a[href=" + click_text_4 + "]"))
+	        print(webs)
+	        if webs:
+	                for web in webs:
+	                        print(web.get_attribute('href'))
+	                        web.send_keys(Keys.CONTROL,Keys.ENTER)
+	                        new_open = new_open + 1
+	                        time.sleep(0.5)
 
-        webs = browser.find_elements(By.PARTIAL_LINK_TEXT, click_text_5)
-        print(webs)
-        if webs:
-                for web in webs:
-                        print(web.get_attribute('href'))
-                        web.send_keys(Keys.CONTROL,Keys.ENTER)
-                        new_open = new_open + 1
-                        time.sleep(0.5)
+        if click_text_5:
+	        webs = browser.find_elements(By.cssSelector("a[href=" + click_text_5 + "]"))
+	        print(webs)
+	        if webs:
+	                for web in webs:
+	                        print(web.get_attribute('href'))
+	                        web.send_keys(Keys.CONTROL,Keys.ENTER)
+	                        new_open = new_open + 1
+	                        time.sleep(0.5)
 
         windows = browser.window_handles
         browser.switch_to.window(windows[-1])
@@ -120,12 +126,6 @@ while x<=y :
 
         print("ok")
         
-    except StaleElementReferenceException as ex:
-        print(ex)
-        pass
-    except NoSuchElementException as ex:
-        print(ex)
-        pass
     except Exception as ex:
         print(ex)
         print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
