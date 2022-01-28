@@ -33,7 +33,7 @@ while x<=y :
 
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--proxy-server=http://%s' % proxy)
-
+    
     # no picture
     prefs = {"profile.managed_default_content_settings.images": 2}
     chrome_options.add_experimental_option("prefs", prefs)
@@ -71,6 +71,18 @@ while x<=y :
         search.send_keys(Keys.RETURN)
         new_open = 0
 
+        webs = browser.find_elements(By.TAG_NAME("a"))
+        if webs:
+	        for web in webs:
+	        	print( web)
+	        	finalurl = web.get_attribute('href')
+	        	print( finalurl)
+	        	if click_text_1 in finalurl or click_text_2 in finalurl or click_text_3 in finalurl or click_text_4 in finalurl or click_text_5 in finalurl: 
+	        		print("Found keyword on href url")
+	        		web.send_keys(Keys.CONTROL,Keys.ENTER)
+	        		new_open = new_open + 1
+	        		time.sleep(0.5)
+	                        
         if click_text_url:
 	        print(css_click_text_url)
 	        webs = browser.find_elements(By.CSS_SELECTOR(css_click_text_url))
