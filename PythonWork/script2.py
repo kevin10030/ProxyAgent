@@ -6,7 +6,7 @@ import json
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException        
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -25,18 +25,18 @@ proxy_handler = request.ProxyHandler({})
 opener = request.build_opener(proxy_handler)
 
 while x<=y :
-    print("Final start2")
+    print("Firefox start")
     username = "geonode_GJkxCcMRU0-autoReplace-True"
     password = "99879a56-fed0-467a-af48-df19046284ae"
     GEONODE_DNS = "premium-residential.geonode.com:9003"
     proxy = "premium-residential.geonode.com:9003" # IP:PORT or HOST:PORT
 
-    chrome_options = webdriver.ChromeOptions()
-    chrome_options.add_argument('--proxy-server=http://%s' % proxy)
+    firefox_options = FirefoxOptions()
+    firefox_options.add_argument('--proxy-server=http://%s' % proxy)
     
     # no picture
-    prefs = {"profile.managed_default_content_settings.images": 2}
-    chrome_options.add_experimental_option("prefs", prefs)
+    #prefs = {"profile.managed_default_content_settings.images": 2}
+    #firefox_options.add_experimental_option("prefs", prefs)
 
     css_click_text_url = 'a[href=\"{0}\"]'.format(click_text_url)
     print( css_click_text_url)
@@ -56,13 +56,13 @@ while x<=y :
     css_click_text_5 = 'a[href=\"{0}\"]'.format(click_text_5)
     print( css_click_text_5)
     
-    browser = webdriver.Chrome(options=chrome_options)
-    #browser = webdriver.Chrome(executable_path=r'E:\chromedriver_win32\chromedriver.exe', options=chrome_options)
+    browser = webdriver.Firefox(options=firefox_options)
+    #browser = webdriver.Firefox(executable_path=r'E:\geckodriver\geckodriver.exe', options=firefox_options)
 
     
     try:
 
-        browser.get("https://www.google.com/") 
+        browser.get("https://www.google.com/")  
         time.sleep(1)
 
         search = browser.find_element_by_name( 'q')
