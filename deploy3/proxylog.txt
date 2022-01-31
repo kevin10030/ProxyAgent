@@ -1,0 +1,10 @@
+Ads URL1 - aaa
+Ads URL2 - bbb
+Ads URL3 - ccc
+0 Repeat Started
+Portal URL - https://www.google.com/search?q=telegram
+Ads URL1 - aaa
+Ads URL2 - bbb
+Ads URL3 - ccc
+1 Repeat Started
+Portal URL - https://www.google.com/search?q=telegram
