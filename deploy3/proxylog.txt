@@ -1,0 +1,7 @@
+Ads URL1 - sdf
+Ads URL2 - sdfsd
+Ads URL3 - sdfsd
+0 Repeat Started
+Proxy Setting for Server OK( premium-residential.geonode.com, 9003)
+Proxy Setting for User OK( geonode_GJkxCcMRU0-autoReplace-True, 99879a56-fed0-467a-af48-df19046284ae)
+Portal URL(ver7) - https://www.google.com/search?q=sdfsdf
