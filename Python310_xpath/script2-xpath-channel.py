@@ -14,10 +14,14 @@ from selenium.webdriver.common.action_chains import ActionChains
 from var import x
 from var import y
 from var import keyword
+from var import click_text_url
 from var import click_text_1
 from var import click_text_2
 from var import click_text_3
-from var import click_text_url
+import urllib.request as request
+
+proxy_handler = request.ProxyHandler({})
+opener = request.build_opener(proxy_handler)
 
 while x<=y :
 
@@ -48,10 +52,15 @@ while x<=y :
         search.send_keys(Keys.RETURN)
         new_open = 0
 
+        print("Found Start")
         webs = browser.find_elements_by_xpath("//a[@class='sVXRqc']")
         if webs:
                 for web in webs:
+                		print( "Fount Ads Item")
+                		print( web)
                 		finalurl = web.get_attribute("href")
+                		print( finalurl)
+                		
                 		if click_text_url in finalurl:
                 			print("Found Temp Ads URL")
                 			req = opener.open( finalurl)
@@ -59,10 +68,12 @@ while x<=y :
                 			print( finalurl)
 			        	
                 		if click_text_1 in finalurl or click_text_2 in finalurl or click_text_3 in finalurl: 
+                			print("Found Real Ads URL")
                 			ActionChains(browser).key_down(Keys.CONTROL).click(web).key_up(Keys.CONTROL).perform()
                 			new_open = new_open + 1
                 			time.sleep(0.5)
                 		else:
+                			print("Nothing found")
                 			print( finalurl)
                    
 
@@ -74,7 +85,8 @@ while x<=y :
 
         print("ok")
 
-    except:
+    except Exception as ex:
+        print(ex)
         print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
 
