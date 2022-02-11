@@ -17,6 +17,7 @@ from var import keyword
 from var import click_text_1
 from var import click_text_2
 from var import click_text_3
+from var import click_text_url
 
 while x<=y :
 
