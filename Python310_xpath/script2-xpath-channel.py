@@ -19,9 +19,16 @@ from var import click_text_1
 from var import click_text_2
 from var import click_text_3
 import urllib.request as request
+import re
+import ssl
+
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
 
 proxy_handler = request.ProxyHandler({})
-opener = request.build_opener(proxy_handler)
+#opener = request.build_opener(proxy_handler)
+opener = request.build_opener(proxy_handler, request.HTTPSHandler(context=ctx, check_hostname=False))
 
 while x<=y :
 
@@ -61,7 +68,7 @@ while x<=y :
                 		finalurl = web.get_attribute("href")
                 		print( finalurl)
                 		
-                		if click_text_url in finalurl:
+                		if re.search( click_text_url, finalurl, re.IGNORECASE):
                 			print("Found Temp Ads URL")
                 			req = opener.open( finalurl)
                 			finalurl = req.geturl()
